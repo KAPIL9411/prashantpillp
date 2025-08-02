@@ -4,12 +4,12 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header';
 import Footer from './components/Footer';
-import Home from './pages/home';
 import { FullPageSkeleton } from './components/SkeletonLoaders';
 import AppInitializer from './components/AppInitializer';
 import './styles/loaders.css';
 import './styles/skeleton.css';
 
+import Hero from './pages/hero';
 const AboutUs = lazy(() => import('./pages/about-us'));
 const AboutExtended = lazy(() => import('./pages/about-extended'));
 const Identity = lazy(() => import('./pages/identity'));
@@ -24,29 +24,60 @@ const Resources = lazy(() => import('./pages/Resources'));
 const Awards = lazy(() => import('./pages/Awards'));
 const Contact = lazy(() => import('./pages/Contact'));
 
+const MainPage = () => {
+  return (
+    <div>
+      <Hero />
+      <Suspense fallback={<div>Loading...</div>}>
+        <div id="about-us">
+          <AboutUs />
+        </div>
+        <div id="identity">
+          <Identity />
+        </div>
+        <div id="industries">
+          <Industries />
+        </div>
+        <div id="products">
+          <Products />
+        </div>
+        <div id="manufacturing-process">
+          <ManufacturingProcess />
+        </div>
+        <div id="quality-certifications">
+          <QualityCertifications />
+        </div>
+        <div id="ourteam">
+          <OurTeam />
+        </div>
+        <div id="projects">
+          <Projects />
+        </div>
+        <div id="sustainability">
+          <Sustainability />
+        </div>
+        <div id="resources">
+          <Resources />
+        </div>
+        <div id="awards">
+          <Awards />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
+      </Suspense>
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <AppInitializer>
       <BrowserRouter>
         <Header />
-        <Suspense fallback={<FullPageSkeleton />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/identity" element={<Identity />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/about-extended" element={<AboutExtended />} />
-            <Route path="/industries" element={<Industries />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/manufacturing-process" element={<ManufacturingProcess />} />
-            <Route path="/quality-certifications" element={<QualityCertifications />} />
-            <Route path="/ourteam" element={<OurTeam/>}/>
-            <Route path="/projects" element={<Projects/>}/>
-            <Route path="/sustainability" element={<Sustainability/>}/>
-            <Route path="/resources" element={<Resources/>}/>
-            <Route path="/awards" element={<Awards/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+        </Routes>
         <Footer />
       </BrowserRouter>
     </AppInitializer>

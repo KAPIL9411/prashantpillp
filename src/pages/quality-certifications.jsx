@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/quality-certifications.css';
 import { FaCertificate, FaSearch, FaShieldAlt } from 'react-icons/fa';
 import { MdDesignServices } from 'react-icons/md';
-import textureImg from '../assets/images/texture.jpg';
 
 const sections = [
   {
@@ -51,11 +50,6 @@ export default function QualityCertifications() {
           <div
             className="qc-card"
             key={idx}
-            style={{
-              backgroundImage: `url(${textureImg})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
           >
             <div className="qc-card-icon">{section.icon}</div>
             <h3 className="qc-card-title">{section.title}</h3>
