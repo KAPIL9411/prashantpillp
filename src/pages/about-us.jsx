@@ -26,14 +26,14 @@ export default function AboutUs() {
                     </div>
                 ))}
             </div>
-            <div
+            {/* <div
                 className="aboutus-plus-icon"
                 style={{ cursor: 'pointer' }}
                 onClick={() => navigate('/about-extended')}
                 title="See more"
             >
                 &#8594;
-            </div>
+            </div> */}
         </section>
     );
 }
