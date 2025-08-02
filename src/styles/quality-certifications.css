@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;600;700&display=swap');
+
+.qc-section {
+  padding: 60px 20px;
+  background-color: #f8fafc; 
+  font-family: 'K2D', sans-serif;
+}
+
+.qc-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.qc-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.qc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.qc-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.qc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -4px rgba(37, 99, 235, 0.1);
+}
+
+.qc-card-icon {
+  font-size: 2rem;
+  color: #2563eb;
+  background-color: #eff6ff; 
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.qc-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+.qc-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.qc-card-tag {
+  background-color: #e0e7ff; 
+  color: #4338ca;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.qc-card-list {
+  list-style-position: outside;
+  padding-left: 20px;
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: auto;
+}
+
+.qc-card-list li {
+  margin-bottom: 8px;
+}
+
+.qc-card-list li::marker {
+  color: #2563eb;
+}
+
+
+@media (max-width: 1024px) {
+  .qc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .qc-section {
+    padding: 40px 15px;
+  }
+  .qc-title {
+    font-size: 2rem;
+  }
+  .qc-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

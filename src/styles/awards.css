@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;600;700&display=swap');
+
+/* --- Main Section --- */
+.awards-section {
+    padding: 80px 20px;
+    background-color: #f8fafc;
+    font-family: 'K2D', sans-serif;
+}
+
+.awards-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.awards-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.awards-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.main-content-section {
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 40px;
+}
+
+/* --- Awards Grid --- */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.award-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.award-icon {
+    font-size: 2.5rem;
+    color: #f59e0b; /* Gold for awards */
+    margin-bottom: 20px;
+}
+
+.award-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.award-description {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- Training Section --- */
+.training-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.training-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.training-img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.training-initiatives {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.initiative-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.initiative-icon {
+    font-size: 1.8rem;
+    color: #2563eb;
+    background-color: #eff6ff;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.initiative-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.initiative-description {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .training-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .awards-title {
+        font-size: 2.2rem;
+    }
+}

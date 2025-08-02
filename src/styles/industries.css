@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@400;600;700&display=swap');
+
+.industries-root {
+    padding: 60px 20px;
+    background: #f8fafc;
+    font-family: 'K2D', sans-serif;
+}
+
+.industries-title {
+    text-align: center;
+    font-size: clamp(2rem, 6vw, 2.7rem);
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1a202c;
+}
+
+.industries-grid {
+    display: grid;
+    /* Responsive grid that adjusts columns automatically */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.industry-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(30, 41, 59, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, height 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    height: 280px; /* Default height */
+}
+
+.industry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 32px rgba(30, 41, 59, 0.15);
+}
+
+.industry-card-image-container {
+    height: 200px; /* Fixed height for the image area */
+    width: 100%;
+    overflow: hidden;
+}
+
+.industry-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.industry-card:hover .industry-card-img {
+    transform: scale(1.05);
+}
+
+.industry-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #f1f5f9;
+}
+
+.industry-card-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #334155;
+    text-align: left;
+}
+
+.industry-toggle-icon {
+    font-size: 1.8rem;
+    color: #94a3b8;
+    font-weight: 700;
+    transition: color 0.2s, transform 0.2s;
+    user-select: none;
+}
+
+.industry-card.expanded .industry-toggle-icon {
+    transform: rotate(45deg);
+    color: #2563eb;
+}
+
+.industry-card.expanded {
+    height: auto; /* Expand to fit content */
+    min-height: 350px;
+}
+
+.industry-child-list {
+    margin: 0 16px 16px 16px;
+    padding: 0 0 0 20px;
+    list-style: disc;
+    color: #475569;
+    font-size: 1rem;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.industry-child-item {
+    margin-bottom: 8px;
+}

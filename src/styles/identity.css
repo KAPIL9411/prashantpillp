@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=K2D:400,700&display=swap');
+
+.identity-root {
+    width: 100%;
+    background: #fff;
+    font-family: 'K2D', Arial, sans-serif;
+    color: #1a2233;
+    padding: 48px 20px;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.04);
+}
+
+.identity-hero {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.identity-hero-title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    font-weight: 700;
+    color: rgb(35, 35, 35);
+    margin-bottom: 16px;
+}
+
+.identity-hero-desc {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    color: #444;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.identity-stats {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #1e3a8a;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(44, 62, 80, 0.08);
+    overflow: hidden;
+}
+
+.identity-stats::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('../assets/images/texture.png');
+    background-repeat: repeat;
+    background-size: 900px auto;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.identity-stat-card {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+    padding: 20px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.identity-stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(44, 62, 80, 0.12);
+}
+.identity-stat-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+    object-fit: contain;
+}
+.identity-stat-value {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.2rem;
+}
+.identity-stat-label {
+    font-size: 1.05rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.identity-stat-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 220px;
+}
+
+@media (min-width: 768px) {
+  .identity-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .identity-stat-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    justify-self: auto;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .identity-stats {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+  }
+}
