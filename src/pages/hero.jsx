@@ -3,6 +3,17 @@ import '../styles/hero.css';
 import factoryOutline from '../assets/images/bgfactoryfinal.webp';
 
 const Hero = () => {
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <div className="hero-container" style={{ backgroundImage: `url(${factoryOutline})` }}>
       <div className="hero-text-container">
@@ -10,9 +21,14 @@ const Hero = () => {
           Prashant Plastic<br />Industries LLP
         </h1>
         <p className="hero-tagline">
-            “Engineering Excellence in Every Layer.”
+            "Engineering Excellence in Every Layer."
         </p>
-        <button className="hero-cta">Explore our Products</button>
+        <button 
+          className="hero-cta" 
+          onClick={(e) => handleSmoothScroll(e, 'products')}
+        >
+          Explore our Products
+        </button>
       </div>
     </div>
   );

@@ -10,7 +10,8 @@ const LazySection = ({
   height = '400px',
   className = '',
   threshold = 0.1,
-  rootMargin = '200px'
+  rootMargin = '200px',
+  skeletonType = 'generic'
 }) => {
   const [ref, isInView] = useLazyLoad({ 
     threshold, 
@@ -21,11 +22,11 @@ const LazySection = ({
   return (
     <div ref={ref} className={className}>
       {isInView ? (
-        <Suspense fallback={fallback || <SectionLoader height={height} />}>
+        <Suspense fallback={fallback || <SectionLoader height={height} type={skeletonType} />}>
           {children}
         </Suspense>
       ) : (
-        fallback || <SectionLoader height={height} className={className} />
+        fallback || <SectionLoader height={height} type={skeletonType} className={className} />
       )}
     </div>
   );

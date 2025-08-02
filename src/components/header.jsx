@@ -6,7 +6,7 @@ import { FaHome, FaInfoCircle, FaUsers, FaBox, FaEnvelope } from 'react-icons/fa
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isOnLightSection, setIsOnLightSection] = useState(false);
+
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -20,22 +20,6 @@ const Header = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 50);
-      const aboutSection = document.getElementById('about-us');
-      const contactSection = document.getElementById('contact');
-      const productsSection = document.getElementById('products');
-      const teamSection = document.getElementById('team');
-      
-      if (aboutSection || contactSection || productsSection || teamSection) {
-        const sections = [aboutSection, contactSection, productsSection, teamSection].filter(Boolean);
-        const isOnLight = sections.some(section => {
-          if (section) {
-            const rect = section.getBoundingClientRect();
-            return rect.top <= 100 && rect.bottom >= 100;
-          }
-          return false;
-        });
-        setIsOnLightSection(isOnLight);
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -52,7 +36,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`main-header ${isScrolled ? 'scrolled' : ''} ${isOnLightSection ? 'on-light' : ''}`}>
+      <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-content">
           <div className="logo">
             <a href="#home" onClick={handleLinkClick}>ppillp</a>

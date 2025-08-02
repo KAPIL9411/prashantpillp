@@ -35,19 +35,19 @@ export default function Home() {
       </div>
       
       <div id="about-us">
-        <LazySection height="600px" rootMargin="250px">
+        <LazySection height="600px" rootMargin="250px" skeletonType="about">
           <AboutUs />
         </LazySection>
       </div>
       
       <div id="industries">
-        <LazySection height="700px" rootMargin="200px">
+        <LazySection height="700px" rootMargin="200px" skeletonType="industries">
           <Industries />
         </LazySection>
       </div>
       
       <div id="products">
-        <LazySection height="800px" rootMargin="200px">
+        <LazySection height="800px" rootMargin="200px" skeletonType="products">
           <Products />
         </LazySection>
       </div>
@@ -65,7 +65,7 @@ export default function Home() {
       </div>
       
       <div id="team">
-        <LazySection height="600px" rootMargin="100px">
+        <LazySection height="600px" rootMargin="100px" skeletonType="team">
           <OurTeam />
         </LazySection>
       </div>

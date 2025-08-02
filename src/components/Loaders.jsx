@@ -1,4 +1,14 @@
 import React from 'react';
+import { 
+  HeroSkeleton, 
+  AboutUsSkeleton, 
+  ProductsSkeleton, 
+  TeamSkeleton, 
+  IndustriesSkeleton, 
+  ContactSkeleton, 
+  GenericSectionSkeleton,
+  FullPageSkeleton 
+} from './SkeletonLoaders';
 
 // Main page loader with company branding
 export const PageLoader = ({ message = "Loading..." }) => (
@@ -31,8 +41,36 @@ export const PageLoader = ({ message = "Loading..." }) => (
   </div>
 );
 
-// Section loader for lazy-loaded components
-export const SectionLoader = ({ height = '400px', className = '' }) => (
+// Enhanced Section loader for lazy-loaded components with specific skeleton types
+export const SectionLoader = ({ height = '400px', className = '', type = 'generic' }) => {
+  const getSkeletonComponent = () => {
+    switch (type) {
+      case 'hero':
+        return <HeroSkeleton />;
+      case 'about':
+        return <AboutUsSkeleton />;
+      case 'products':
+        return <ProductsSkeleton />;
+      case 'team':
+        return <TeamSkeleton />;
+      case 'industries':
+        return <IndustriesSkeleton />;
+      case 'contact':
+        return <ContactSkeleton />;
+      default:
+        return <GenericSectionSkeleton height={height} />;
+    }
+  };
+
+  return (
+    <div className={className}>
+      {getSkeletonComponent()}
+    </div>
+  );
+};
+
+// Legacy simple section loader (kept for backward compatibility)
+export const SimpleSectionLoader = ({ height = '400px', className = '' }) => (
   <div className={`flex items-center justify-center ${className}`} style={{ height }}>
     <div className="text-center">
       {/* Skeleton loader with shimmer effect */}
