@@ -53,7 +53,7 @@ const Header = () => {
   const menuItems = [
     { href: '#home', icon: FaHome, label: 'Home' },
     { href: '#about-us', icon: FaInfoCircle, label: 'About Us' },
-    { href: '#team', icon: FaUsers, label: 'Team' },
+    { href: '#ourteam', icon: FaUsers, label: 'Team' },
     { href: '#products', icon: FaBox, label: 'Products' },
     { href: '#industries', icon: FaIndustry, label: 'Industries' },
     { href: '#quality-certifications', icon: FaCertificate, label: 'Quality & Certifications' },
@@ -76,7 +76,7 @@ const Header = () => {
           <nav className="nav-links">
             <a href="#home" onClick={handleLinkClick}>Home</a>
             <a href="#about-us" onClick={handleLinkClick}>About Us</a>
-            <a href="#team" onClick={handleLinkClick}>Team</a>
+            <a href="#ourteam" onClick={handleLinkClick}>Team</a>
             <a href="#products" onClick={handleLinkClick}>Products</a>
           </nav>
           
@@ -90,11 +90,10 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Professional Side Menu */}
       <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
         <div className="side-menu-header">
           <div className="side-menu-logo">
-            <img src={logo} alt="Prashant Plastic Industries LLP" className="side-logo-image" />
+            <img src={logo} alt="PPILLP" className="side-logo-image" />
           </div>
           <button className="close-menu-btn" onClick={toggleMenu} aria-label="Close menu">
             <FaTimes />
@@ -127,7 +126,6 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Backdrop Overlay */}
       <div className={`menu-backdrop ${isMenuOpen ? 'open' : ''}`} onClick={handleLinkClick}></div>
     </>
   );

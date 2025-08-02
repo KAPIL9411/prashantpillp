@@ -15,7 +15,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-container" style={{ backgroundImage: `url(${factoryOutline})` }}>
+    <div id="home" className="hero-container" style={{ backgroundImage: `url(${factoryOutline})` }}>
       <div className="hero-text-container">
         <h1 className="hero-title">
           Prashant Plastic<br />Industries LLP
