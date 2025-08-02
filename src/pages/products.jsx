@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/products.css';
 import productImage1 from '../assets/images/products/1.webp';
-import productImage2 from '../assets/images/products/Horizontaltank.webp';
+import productImage2 from '../assets/images/products/horizontaltank.webp';
 import productImage3 from '../assets/images/products/Rectangulartank.webp';
 import productImage4 from '../assets/images/products/hdpe.webp';
 import productImage5 from '../assets/images/products/PPReactorVessels.webp';
