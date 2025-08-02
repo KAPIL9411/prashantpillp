@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import '../styles/header.css'; 
 import { FaHome, FaInfoCircle, FaUsers, FaBox, FaEnvelope } from 'react-icons/fa';
+import logo from '../assets/logos/logo.webp';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +40,9 @@ const Header = () => {
       <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-content">
           <div className="logo">
-            <a href="#home" onClick={handleLinkClick}>ppillp</a>
+            <a href="#home" onClick={handleLinkClick}>
+              <img src={logo} alt="Prashant Plastic Industries LLP" className="logo-image" />
+            </a>
           </div>
           
           <nav className="nav-links">

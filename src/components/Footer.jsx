@@ -1,8 +1,13 @@
 import React from 'react';
 import '../styles/footer.css';
 import { FaLinkedin, FaTwitter, FaFacebook, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import logo from '../assets/logos/logo.webp';
 
-const Logo = () => <h3 className="footer-logo">Prashant Plastic Industries LLP</h3>;
+const Logo = () => (
+  <div className="footer-logo">
+    <img src={logo} alt="Prashant Plastic Industries LLP" className="footer-logo-image" />
+  </div>
+);
 
 const handleSmoothScroll = (e, targetId) => {
   e.preventDefault();
