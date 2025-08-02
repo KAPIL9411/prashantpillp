@@ -51,19 +51,41 @@
     letter-spacing: 1px;
 }
 
-.clients-logo-grid {
-    display: flex;
-    justify-content: center;
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 10%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
+}
+
+.marquee-content {
+    display: inline-flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 40px 50px;
+    gap: 60px;
+    animation: marquee 30s linear infinite;
+    padding: 20px 0;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .client-logo {
     height: 40px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+    filter: grayscale(80%);
+    flex-shrink: 0;
+}
+
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
 }
 
 .client-logo:hover {

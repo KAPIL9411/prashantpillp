@@ -55,10 +55,15 @@ export default function Projects() {
 
             <div className="clients-section">
                 <h3 className="clients-title">Trusted By Industry Leaders</h3>
-                <div className="clients-logo-grid">
-                    {keyClients.map(client => (
-                        <img key={client.name} src={client.logoUrl} alt={`${client.name} Logo`} className="client-logo" />
-                    ))}
+                <div className="marquee-container">
+                    <div className="marquee-content">
+                        {keyClients.map((client, index) => (
+                            <img key={`${client.name}-1-${index}`} src={client.logoUrl} alt={`${client.name} Logo`} className="client-logo" />
+                        ))}
+                        {keyClients.map((client, index) => (
+                            <img key={`${client.name}-2-${index}`} src={client.logoUrl} alt={`${client.name} Logo`} className="client-logo" />
+                        ))}
+                    </div>
                 </div>
             </div>
 
