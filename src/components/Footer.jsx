@@ -1,8 +1,19 @@
 import React from 'react';
 import '../styles/footer.css';
-import { FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaFacebook, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Logo = () => <h3 className="footer-logo">Prashant Plastic Industries LLP</h3>;
+
+const handleSmoothScroll = (e, targetId) => {
+  e.preventDefault();
+  const element = document.getElementById(targetId);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
 
 export default function Footer() {
     return (
@@ -14,40 +25,49 @@ export default function Footer() {
                         A pioneer in manufacturing high-quality Fibre Reinforced Plastic (FRP) and Glass Reinforced Plastic (GRP) products since 1974.
                     </p>
                     <div className="social-icons">
-                        <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
-                        <a href="#" aria-label="Twitter"><FaTwitter /></a>
-                        <a href="#" aria-label="Facebook"><FaFacebook /></a>
+                        <a href="https://linkedin.com/company/ppillp" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+                        <a href="https://twitter.com/ppillp" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+                        <a href="https://facebook.com/ppillp" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
                     </div>
                 </div>
 
                 <div className="footer-column">
                     <h4 className="footer-heading">Quick Links</h4>
                     <ul className="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Sustainability</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#about-us" onClick={(e) => handleSmoothScroll(e, 'about-us')}>About Us</a></li>
+                        <li><a href="#products" onClick={(e) => handleSmoothScroll(e, 'products')}>Products</a></li>
+                        <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, 'projects')}>Projects</a></li>
+                        <li><a href="#sustainability" onClick={(e) => handleSmoothScroll(e, 'sustainability')}>Sustainability</a></li>
+                        <li><a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>Contact Us</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-column">
                     <h4 className="footer-heading">Our Products</h4>
                     <ul className="footer-links">
-                        <li><a href="#">Chemical Process Equipment</a></li>
-                        <li><a href="#">Storage Tanks & Systems</a></li>
-                        <li><a href="#">Pollution Control</a></li>
-                        <li><a href="#">Piping & Fittings</a></li>
-                        <li><a href="#">Renewable Energy</a></li>
+                        <li><a href="#products" onClick={(e) => handleSmoothScroll(e, 'products')}>Chemical Process Equipment</a></li>
+                        <li><a href="#products" onClick={(e) => handleSmoothScroll(e, 'products')}>Storage Tanks & Systems</a></li>
+                        <li><a href="#products" onClick={(e) => handleSmoothScroll(e, 'products')}>Pollution Control</a></li>
+                        <li><a href="#products" onClick={(e) => handleSmoothScroll(e, 'products')}>Piping & Fittings</a></li>
+                        <li><a href="#products" onClick={(e) => handleSmoothScroll(e, 'products')}>Renewable Energy</a></li>
                     </ul>
                 </div>
 
                 <div className="footer-column">
                     <h4 className="footer-heading">Get in Touch</h4>
                     <ul className="footer-contact">
-                        <li>B-72, MIDC Anand Nagar, Ambernath, Maharashtra</li>
-                        <li>info@ppillp.com</li>
-                        <li>+91 9623 368 579</li>
+                        <li className="contact-item">
+                            <FaMapMarkerAlt className="contact-icon" />
+                            <span>B-72, MIDC Anand Nagar, Ambernath, Maharashtra</span>
+                        </li>
+                        <li className="contact-item">
+                            <FaEnvelope className="contact-icon" />
+                            <a href="mailto:info@ppillp.com">info@ppillp.com</a>
+                        </li>
+                        <li className="contact-item">
+                            <FaPhone className="contact-icon" />
+                            <a href="tel:+919623368579">+91 9623 368 579</a>
+                        </li>
                     </ul>
                 </div>
             </div>

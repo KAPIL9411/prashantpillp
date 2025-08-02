@@ -25,54 +25,80 @@ export default function Home() {
 
   return (
     <section>
-      <Hero />
-      <LazySection height="500px" rootMargin="300px">
-        <Identity />
-      </LazySection>
+      <div id="home">
+        <Hero />
+      </div>
+      <div id="identity">
+        <LazySection height="500px" rootMargin="300px">
+          <Identity />
+        </LazySection>
+      </div>
       
-      <LazySection height="600px" rootMargin="250px">
-        <AboutUs />
-      </LazySection>
+      <div id="about-us">
+        <LazySection height="600px" rootMargin="250px">
+          <AboutUs />
+        </LazySection>
+      </div>
       
-      <LazySection height="700px" rootMargin="200px">
-        <Industries />
-      </LazySection>
+      <div id="industries">
+        <LazySection height="700px" rootMargin="200px">
+          <Industries />
+        </LazySection>
+      </div>
       
-      <LazySection height="800px" rootMargin="200px">
-        <Products />
-      </LazySection>
+      <div id="products">
+        <LazySection height="800px" rootMargin="200px">
+          <Products />
+        </LazySection>
+      </div>
       
-      <LazySection height="600px" rootMargin="150px">
-        <ManufacturingProcess />
-      </LazySection>
+      <div id="manufacturing">
+        <LazySection height="600px" rootMargin="150px">
+          <ManufacturingProcess />
+        </LazySection>
+      </div>
       
-      <LazySection height="500px" rootMargin="150px">
-        <QualityCertifications />
-      </LazySection>
+      <div id="quality">
+        <LazySection height="500px" rootMargin="150px">
+          <QualityCertifications />
+        </LazySection>
+      </div>
       
-      <LazySection height="600px" rootMargin="100px">
-        <OurTeam />
-      </LazySection>
+      <div id="team">
+        <LazySection height="600px" rootMargin="100px">
+          <OurTeam />
+        </LazySection>
+      </div>
       
-      <LazySection height="700px" rootMargin="100px">
-        <Projects />
-      </LazySection>
+      <div id="projects">
+        <LazySection height="700px" rootMargin="100px">
+          <Projects />
+        </LazySection>
+      </div>
       
-      <LazySection height="500px" rootMargin="100px">
-        <Sustainability />
-      </LazySection>
+      <div id="sustainability">
+        <LazySection height="500px" rootMargin="100px">
+          <Sustainability />
+        </LazySection>
+      </div>
       
-      <LazySection height="600px" rootMargin="50px">
-        <Resources />
-      </LazySection>
+      <div id="resources">
+        <LazySection height="600px" rootMargin="50px">
+          <Resources />
+        </LazySection>
+      </div>
       
-      <LazySection height="400px" rootMargin="50px">
-        <Awards />
-      </LazySection>
+      <div id="awards">
+        <LazySection height="400px" rootMargin="50px">
+          <Awards />
+        </LazySection>
+      </div>
       
-      <LazySection height="500px" rootMargin="0px">
-        <Contact />
-      </LazySection>
+      <div id="contact">
+        <LazySection height="500px" rootMargin="0px">
+          <Contact />
+        </LazySection>
+      </div>
     </section>
   )
 }
