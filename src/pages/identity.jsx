@@ -7,8 +7,8 @@ import industryIcon from '../assets/images/industry-icon.png';
 import isoIcon from '../assets/images/iso-icon.png';
 
 const stats = [
-    { value: '38+', label: 'Years Experience', icon: factoryIcon },
-    { value: '500+', label: 'Projects Completed', icon: projectIcon },
+    { value: '51+', label: 'Years Experience', icon: factoryIcon },
+    { value: '5000+', label: 'Projects Completed', icon: projectIcon },
     { value: '15+', label: 'Countries Served', icon: globeIcon },
     { value: '30+', label: 'Industries', icon: industryIcon },
     { value: '9001:2015', label: 'Certified', icon: isoIcon },
@@ -19,9 +19,9 @@ const Identity = () => {
         <main className="identity-root">
             <section className="identity-hero">
                 <div className="identity-hero-content">
-                    <h1 className="identity-hero-title">38+ Years of Excellence</h1>
+                    <h1 className="identity-hero-title">51+ Years of Excellence</h1>
                     <p className="identity-hero-desc">
-                        Prashant Plastic Industries LLP is a leader in FRP/GRP solutions, delivering excellence, innovation, and sustainability for over 38 years.
+                        Prashant Plastic Industries LLP is a leader in FRP/GRP solutions, delivering excellence, innovation, and sustainability for over 51 years.
                     </p>
                 </div>
             </section>

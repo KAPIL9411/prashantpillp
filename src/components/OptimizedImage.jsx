@@ -46,11 +46,9 @@ const OptimizedImage = ({
     setHasError(true);
   };
 
-  // Generate WebP and fallback sources
   const getOptimizedSrc = (originalSrc) => {
     if (!originalSrc) return placeholder;
     
-    // If it's already a data URL or external URL, return as is
     if (originalSrc.startsWith('data:') || originalSrc.startsWith('http')) {
       return originalSrc;
     }
@@ -64,7 +62,6 @@ const OptimizedImage = ({
       className={`relative overflow-hidden ${className}`}
       style={{ width, height }}
     >
-      {/* Placeholder/Loading state */}
       {!isLoaded && !hasError && (
         <ImageLoader 
           width={width || '100%'} 
@@ -73,7 +70,6 @@ const OptimizedImage = ({
         />
       )}
 
-      {/* Error state */}
       {hasError && (
         <div 
           className="absolute inset-0 bg-gray-100 flex items-center justify-center text-gray-500"
@@ -83,7 +79,6 @@ const OptimizedImage = ({
         </div>
       )}
 
-      {/* Actual image */}
       {(isInView || loading === 'eager') && (
         <picture>
           <img

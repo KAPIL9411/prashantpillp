@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 
-// Custom hook for lazy loading components
 export const useLazyLoad = (options = {}) => {
   const [isInView, setIsInView] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -52,7 +51,6 @@ export const useLazyLoad = (options = {}) => {
   return [elementRef, isInView || hasLoaded];
 };
 
-// Hook for preloading components when they're about to come into view
 export const usePreloadOnHover = (preloadFn) => {
   const [isPreloaded, setIsPreloaded] = useState(false);
 

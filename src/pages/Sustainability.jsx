@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/sustainability.css';
 import { FaLeaf, FaSolarPanel, FaIndustry, FaBoxOpen, FaHandHoldingHeart } from 'react-icons/fa';
+import SolarImg from '../assets/images/solar.webp';
 
 const sustainabilityPillars = [
     {
@@ -54,7 +55,7 @@ export default function Sustainability() {
                 </div>
                 <div className="feature-image-wrapper">
                     <img 
-                        src="https://placehold.co/600x400/22c55e/ffffff?text=Solar+Park+Project" 
+                        src={SolarImg} 
                         alt="Solar Park Project" 
                         className="feature-image"
                     />

@@ -3,7 +3,7 @@ import '../styles/about-us.css';
 import { useNavigate } from 'react-router-dom';
 
 const stats = [
-    { value: '50+', label: 'YEARS OF EXPERIENCE' },
+    { value: '51+', label: 'YEARS OF EXPERIENCE' },
     { value: '250+', label: 'SKILLED PROFESSIONALS' },
     { value: '45000+', label: 'EQUIPMENTS MANUFACTURED', className: 'aboutus-stat-circle--small' },
     { value: '10+', label: 'COUNTRIES EXPORTED TO' },

@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/awards.css';
 import { FaAward, FaCertificate, FaUsers, FaHardHat, FaLightbulb, FaUserTie } from 'react-icons/fa';
+import WorkshopImg from '../assets/images/workshop.webp';
+import TrainingImg from '../assets/images/training.webp';
 
 const awards = [
     { icon: <FaAward />, title: 'Industry Excellence', description: 'Recognized for our outstanding contributions and leadership in the FRP/GRP manufacturing industry.' },
@@ -41,8 +43,8 @@ export default function Awards() {
                 <h3 className="section-subtitle">Training & Development</h3>
                 <div className="training-grid">
                     <div className="training-images">
-                        <img src="https://placehold.co/600x400/1e293b/ffffff?text=Workshop" alt="Employee workshop" className="training-img" />
-                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=Training+Day" alt="Employee training day" className="training-img" />
+                        <img src={WorkshopImg} alt="Employee workshop" className="training-img" />
+                        <img src={TrainingImg} alt="Employee training day" className="training-img" />
                     </div>
                     <div className="training-initiatives">
                         {trainingInitiatives.map((initiative, index) => (

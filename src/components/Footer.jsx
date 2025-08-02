@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/footer.css';
 import { FaLinkedin, FaTwitter, FaFacebook, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import logo from '../assets/logos/logo.webp';
+
+import logo from '../assets/logos/logo.webp'; 
 
 const Logo = () => (
   <div className="footer-logo">
@@ -27,7 +28,7 @@ export default function Footer() {
                 <div className="footer-column">
                     <Logo />
                     <p className="footer-tagline">
-                        A pioneer in manufacturing high-quality Fibre Reinforced Plastic (FRP) and Glass Reinforced Plastic (GRP) products since 1974.
+                        A pioneer in manufacturing high-quality Fibre Reinforced Plastic (FRP) and Glass Reinforced Plastic (GRP) products since 1980.
                     </p>
                     <div className="social-icons">
                         <a href="https://linkedin.com/company/ppillp" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
@@ -63,7 +64,7 @@ export default function Footer() {
                     <ul className="footer-contact">
                         <li className="contact-item">
                             <FaMapMarkerAlt className="contact-icon" />
-                            <span>B-72, MIDC Anand Nagar, Ambernath, Maharashtra</span>
+                            <span>W-75 & 76, Additional M.I.D.C, Anand Nagar, Ambernath (E), Thane, Maharashtra - 421 506</span>
                         </li>
                         <li className="contact-item">
                             <FaEnvelope className="contact-icon" />
@@ -71,7 +72,11 @@ export default function Footer() {
                         </li>
                         <li className="contact-item">
                             <FaPhone className="contact-icon" />
-                            <a href="tel:+919623368579">+91 9623 368 579</a>
+                            <div>
+                                <a href="tel:02512621001">0251-2621001</a><br/>
+                                <a href="tel:02512620137">0251-2620137</a><br/>
+                                <a href="tel:+918698475053">+91 8698475053</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
