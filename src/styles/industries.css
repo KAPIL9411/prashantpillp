@@ -42,6 +42,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: #1e293b;
 }
 
 .industries-subtitle {
@@ -55,9 +56,10 @@
 
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 2rem;
     justify-items: center;
+    width: 100%;
 }
 
 .industries-grid::after {
@@ -65,7 +67,7 @@
     grid-column: 1 / -1;
 }
 
-@supports (display: grid) {
+@supports not (display: grid) {
     .industries-grid {
         display: flex;
         flex-wrap: wrap;
@@ -92,6 +94,13 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     position: relative;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+    .industry-card {
+        background: rgba(255, 255, 255, 0.85);
+    }
 }
 
 .industry-card::before {
@@ -101,7 +110,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color, #3b82f6), var(--accent-color, #3b82f6)80);
+    background: linear-gradient(90deg, var(--accent-color, #3b82f6), var(--accent-color, #3b82f6));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -126,33 +135,13 @@
 }
 
 .industry-icon {
-    color: #475569;
+    color: white !important;
     width: 48px !important;
     height: 48px !important;
     min-width: 48px;
     min-height: 48px;
     opacity: 0.9;
     transition: all 0.3s ease;
-}
-
-.industry-card[style*="--accent-color: #2563eb"] .industry-icon {
-    color: #2563eb;
-}
-
-.industry-card[style*="--accent-color: #64748b"] .industry-icon {
-    color: #64748b;
-}
-
-.industry-card[style*="--accent-color: #0891b2"] .industry-icon {
-    color: #0891b2;
-}
-
-.industry-card[style*="--accent-color: #dc2626"] .industry-icon {
-    color: #dc2626;
-}
-
-.industry-card[style*="--accent-color: #059669"] .industry-icon {
-    color: #059669;
 }
 
 .industry-card:hover .industry-icon {
@@ -174,7 +163,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--accent-color, #3b82f6), var(--accent-color, #3b82f6)90);
+    background: linear-gradient(135deg, var(--accent-color, #3b82f6), var(--accent-color, #3b82f6));
     border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
@@ -183,7 +172,7 @@
 .industry-icon {
     width: 2rem;
     height: 2rem;
-    color: white;
+    color: white !important;
     stroke-width: 2;
 }
 
@@ -310,6 +299,20 @@
     .industries-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    @supports not (display: grid) {
+        .industries-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .industry-card {
+            width: 100%;
+            max-width: none;
+            min-width: auto;
+        }
     }
     
     .industry-card-header {
