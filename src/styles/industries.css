@@ -67,21 +67,7 @@
     grid-column: 1 / -1;
 }
 
-@supports not (display: grid) {
-    .industries-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-    }
-    
-    .industry-card {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 350px;
-        min-width: 350px;
-    }
-}
+/* Removed problematic @supports fallback that was causing layout inconsistencies on Vercel */
 
 .industry-card {
     background: rgba(255, 255, 255, 0.85);
@@ -134,16 +120,6 @@
     opacity: 1;
 }
 
-.industry-icon {
-    color: white !important;
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px;
-    min-height: 48px;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
 .industry-card:hover .industry-icon {
     opacity: 1;
     transform: scale(1.1);
@@ -169,11 +145,19 @@
     flex-shrink: 0;
 }
 
-.industry-icon {
-    width: 2rem;
-    height: 2rem;
+.industry-icon,
+.industry-icon-container .industry-icon,
+.industry-icon-container svg {
+    width: 2rem !important;
+    height: 2rem !important;
     color: white !important;
+    fill: white !important;
+    stroke: white !important;
     stroke-width: 2;
+    min-width: 2rem;
+    min-height: 2rem;
+    opacity: 0.9;
+    transition: all 0.3s ease;
 }
 
 .industry-content {
@@ -278,7 +262,6 @@
     flex-shrink: 0;
 }
 
-/* Mobile optimizations */
 @media (max-width: 768px) {
     .industries-root {
         padding: 3rem 1rem;
@@ -301,19 +284,7 @@
         gap: 1.5rem;
     }
     
-    @supports not (display: grid) {
-        .industries-grid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .industry-card {
-            width: 100%;
-            max-width: none;
-            min-width: auto;
-        }
-    }
+    /* Removed mobile @supports fallback for consistency */
     
     .industry-card-header {
         padding: 1.5rem;
