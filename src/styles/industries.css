@@ -56,15 +56,35 @@
 
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     justify-items: center;
     width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.industries-grid::after {
-    content: '';
-    grid-column: 1 / -1;
+/* Responsive breakpoints for consistent layout */
+@media (max-width: 1024px) {
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .industries-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .industries-grid {
+        gap: 1rem;
+    }
 }
 
 @supports not (display: grid) {
@@ -78,7 +98,7 @@
     .industry-card {
         flex: 0 0 auto;
         width: 100%;
-        max-width: 350px;
+        max-width: 400px;
         min-width: 350px;
     }
 }
@@ -95,6 +115,9 @@
     overflow: hidden;
     position: relative;
     background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 420px;
+    min-height: 140px;
 }
 
 @supports (backdrop-filter: blur(12px)) {
