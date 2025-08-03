@@ -56,7 +56,6 @@
 
 .industries-grid {
     display: grid;
-    /* Using grid-template-areas for a more robust layout */
     grid-template-areas:
         "card1 card2"
         "card3 card4"
@@ -67,15 +66,13 @@
     max-width: 1000px;
     margin: 0 auto;
 }
-
-/* Assigning each card to its designated grid area */
 .industries-grid .industry-card:nth-child(1) { grid-area: card1; }
 .industries-grid .industry-card:nth-child(2) { grid-area: card2; }
 .industries-grid .industry-card:nth-child(3) { grid-area: card3; }
 .industries-grid .industry-card:nth-child(4) { grid-area: card4; }
 .industries-grid .industry-card:nth-child(5) {
     grid-area: card5;
-    justify-self: center; /* Center the card within its wide area */
+    justify-self: center;
     max-width: 480px;
     width: 100%;
 }
@@ -85,7 +82,7 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 1.5rem;
-    border: 1px solid rgba(226, 232, 240, 0.5); /* Softer border */
+    border: 1px solid rgba(226, 232, 240, 0.5);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -150,11 +147,10 @@
     transition: all 0.3s ease;
 }
 
-/* Consolidated and corrected icon styles */
 .industry-icon {
-    color: white; /* react-icons library might try to set its own color */
-    width: 2.25rem;  /* 36px */
-    height: 2.25rem; /* 36px */
+    color: white;
+    width: 2.25rem;
+    height: 2.25rem;
     opacity: 0.95;
     transition: all 0.3s ease;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
@@ -270,7 +266,6 @@
     flex-shrink: 0;
 }
 
-/* Responsive Breakpoints */
 @media (max-width: 1024px) {
     .industries-grid {
         max-width: 900px;
@@ -292,7 +287,6 @@
         font-size: 1.1rem;
     }
     .industries-grid {
-        /* Define a single-column layout for mobile */
         grid-template-areas:
           "card1"
           "card2"
@@ -304,8 +298,8 @@
         gap: 1.5rem;
     }
     .industries-grid .industry-card:nth-child(5) {
-        max-width: 100%; /* Allow it to fill the column */
-        justify-self: stretch; /* Reset justification for single column */
+        max-width: 100%;
+        justify-self: stretch;
     }
     .industry-card-header {
         padding: 1.5rem;
