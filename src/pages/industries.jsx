@@ -9,15 +9,10 @@ import {
   FaIndustry
 } from 'react-icons/fa';
 
-// React Icons Component with better visibility
-const IndustryIcon = ({ type, className }) => {
+// Simplified and CSS-driven Icon Component
+const IndustryIcon = ({ type }) => {
   const iconProps = {
-    className: `${className} industry-icon`,
-    size: 48,
-    style: { 
-      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
-      transition: 'all 0.3s ease'
-    }
+    className: 'industry-icon'
   };
   
   const icons = {
@@ -36,7 +31,6 @@ const industries = [
         name: 'Chemical & Process Industries',
         icon: 'chemical',
         color: '#2563eb',
-        gradient: 'from-blue-500 to-blue-600',
         children: ['Pharmaceuticals', 'Chemicals', 'Fertilizers & Pesticides'],
         description: 'Advanced solutions for chemical processing and pharmaceutical manufacturing'
     },
@@ -44,7 +38,6 @@ const industries = [
         name: 'Metals, Mining & Infrastructure',
         icon: 'construction',
         color: '#64748b',
-        gradient: 'from-slate-500 to-slate-600',
         children: ['Steel', 'Mining', 'Construction'],
         description: 'Robust infrastructure solutions for heavy industries and construction'
     },
@@ -52,7 +45,6 @@ const industries = [
         name: 'Water & Environmental Solutions',
         icon: 'water',
         color: '#0891b2',
-        gradient: 'from-cyan-500 to-cyan-600',
         children: ['Desalination', 'Pulp & Paper'],
         description: 'Sustainable water treatment and environmental protection systems'
     },
@@ -60,7 +52,6 @@ const industries = [
         name: 'OEM & Industrial Manufacturing',
         icon: 'manufacturing',
         color: '#dc2626',
-        gradient: 'from-red-500 to-red-600',
         children: ['OEMs', 'Telecom'],
         description: 'Precision manufacturing solutions for industrial applications'
     },
@@ -68,7 +59,6 @@ const industries = [
         name: 'Energy & Renewables',
         icon: 'energy',
         color: '#059669',
-        gradient: 'from-emerald-500 to-emerald-600',
         children: ['Oil & Gas', 'Agrochemicals', 'Viscose/Fiber'],
         description: 'Clean energy solutions and renewable technology systems'
     },
@@ -99,7 +89,7 @@ export default function Industries() {
                         >
                             <div className="industry-card-header">
                                 <div className="industry-icon-container">
-                                    <IndustryIcon type={industry.icon} className="industry-icon" />
+                                    <IndustryIcon type={industry.icon} />
                                 </div>
                                 <div className="industry-content">
                                     <h3 className="industry-name">{industry.name}</h3>

@@ -43,7 +43,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #1e293b;
 }
 
 .industries-subtitle {
@@ -57,73 +56,28 @@
 
 .industries-grid {
     display: grid;
+    /* Using grid-template-areas for a more robust layout */
+    grid-template-areas:
+        "card1 card2"
+        "card3 card4"
+        "card5 card5";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, auto);
     gap: 2rem;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    justify-content: center;
-    align-items: start;
 }
 
-/* Force 5th item to span both columns and center */
+/* Assigning each card to its designated grid area */
+.industries-grid .industry-card:nth-child(1) { grid-area: card1; }
+.industries-grid .industry-card:nth-child(2) { grid-area: card2; }
+.industries-grid .industry-card:nth-child(3) { grid-area: card3; }
+.industries-grid .industry-card:nth-child(4) { grid-area: card4; }
 .industries-grid .industry-card:nth-child(5) {
-    grid-column: 1 / -1;
-    justify-self: center;
+    grid-area: card5;
+    justify-self: center; /* Center the card within its wide area */
     max-width: 480px;
-}
-
-/* Responsive breakpoints */
-@media (min-width: 1200px) {
-    .industries-grid {
-        max-width: 1100px;
-        gap: 2.5rem;
-    }
-}
-
-@media (max-width: 1024px) {
-    .industries-grid {
-        max-width: 900px;
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .industries-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(5, auto);
-        max-width: 500px;
-        gap: 1.5rem;
-    }
-    
-    .industries-grid .industry-card:nth-child(5) {
-        grid-column: 1;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .industries-grid {
-        gap: 1rem;
-        max-width: 400px;
-    }
-}
-
-@supports not (display: grid) {
-    .industries-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-    }
-    
-    .industry-card {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 450px;
-        min-width: 350px;
-    }
+    width: 100%;
 }
 
 .industry-card {
@@ -131,13 +85,12 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(226, 232, 240, 0.5); /* Softer border */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     position: relative;
-    width: 100%;
     min-height: 140px;
     display: flex;
     flex-direction: column;
@@ -156,7 +109,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color, #3b82f6), var(--accent-color, #3b82f6));
+    background: var(--accent-color, #3b82f6);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -167,33 +120,14 @@
     background: rgba(255, 255, 255, 0.95);
 }
 
-.industry-card:hover::before {
+.industry-card:hover::before,
+.industry-card.active::before {
     opacity: 1;
 }
 
 .industry-card.active {
     background: rgba(255, 255, 255, 0.95);
     transform: translateY(-4px);
-}
-
-.industry-card.active::before {
-    opacity: 1;
-}
-
-.industry-icon {
-    color: white !important;
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px;
-    min-height: 48px;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-.industry-card:hover .industry-icon {
-    opacity: 1;
-    transform: scale(1.1);
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)) !important;
 }
 
 .industry-card-header {
@@ -209,17 +143,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--accent-color, #3b82f6), var(--accent-color, #3b82f6));
+    background: var(--accent-color, #3b82f6);
     border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
+/* Consolidated and corrected icon styles */
 .industry-icon {
-    width: 2rem;
-    height: 2rem;
-    color: white !important;
-    stroke-width: 2;
+    color: white; /* react-icons library might try to set its own color */
+    width: 2.25rem;  /* 36px */
+    height: 2.25rem; /* 36px */
+    opacity: 0.95;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.industry-card:hover .industry-icon {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
 .industry-content {
@@ -268,7 +212,9 @@
 }
 
 .industry-specializations {
-    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 1.5rem;
+    margin-top: -0.5rem;
 }
 
 .specializations-title {
@@ -324,67 +270,68 @@
     flex-shrink: 0;
 }
 
-/* Mobile optimizations */
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .industries-grid {
+        max-width: 900px;
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .industries-root {
         padding: 3rem 1rem;
     }
-    
     .industries-header {
         margin-bottom: 3rem;
     }
-    
     .industries-title {
         font-size: clamp(2rem, 8vw, 2.5rem);
     }
-    
     .industries-subtitle {
         font-size: 1.1rem;
     }
-    
     .industries-grid {
+        /* Define a single-column layout for mobile */
+        grid-template-areas:
+          "card1"
+          "card2"
+          "card3"
+          "card4"
+          "card5";
         grid-template-columns: 1fr;
+        max-width: 500px;
         gap: 1.5rem;
     }
-    
-    @supports not (display: grid) {
-        .industries-grid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .industry-card {
-            width: 100%;
-            max-width: none;
-            min-width: auto;
-        }
+    .industries-grid .industry-card:nth-child(5) {
+        max-width: 100%; /* Allow it to fill the column */
+        justify-self: stretch; /* Reset justification for single column */
     }
-    
     .industry-card-header {
         padding: 1.5rem;
         gap: 1rem;
     }
-    
     .industry-icon-container {
-        width: 3rem;
-        height: 3rem;
+        width: 3.5rem;
+        height: 3.5rem;
     }
-    
     .industry-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
     }
-    
     .industry-name {
         font-size: 1.1rem;
     }
-    
     .industry-description {
         font-size: 0.9rem;
     }
-    
     .industry-card.active .industry-details {
         padding: 0 1.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .industries-grid {
+        gap: 1rem;
     }
 }
