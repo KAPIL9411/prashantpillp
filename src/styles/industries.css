@@ -25,6 +25,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding: 0 1rem;
 }
 
 .industries-header {
@@ -56,34 +57,56 @@
 
 .industries-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
     gap: 2rem;
-    justify-items: center;
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    justify-content: center;
+    align-items: start;
 }
 
-/* Responsive breakpoints for consistent layout */
+/* Force 5th item to span both columns and center */
+.industries-grid .industry-card:nth-child(5) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 480px;
+}
+
+/* Responsive breakpoints */
+@media (min-width: 1200px) {
+    .industries-grid {
+        max-width: 1100px;
+        gap: 2.5rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .industries-grid {
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
         gap: 1.5rem;
-        max-width: 700px;
     }
 }
 
 @media (max-width: 768px) {
     .industries-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, auto);
+        max-width: 500px;
         gap: 1.5rem;
-        max-width: 400px;
+    }
+    
+    .industries-grid .industry-card:nth-child(5) {
+        grid-column: 1;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     .industries-grid {
         gap: 1rem;
+        max-width: 400px;
     }
 }
 
@@ -98,13 +121,13 @@
     .industry-card {
         flex: 0 0 auto;
         width: 100%;
-        max-width: 400px;
+        max-width: 450px;
         min-width: 350px;
     }
 }
 
 .industry-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 1.5rem;
@@ -114,10 +137,10 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     position: relative;
-    background: rgba(255, 255, 255, 0.95);
     width: 100%;
-    max-width: 420px;
     min-height: 140px;
+    display: flex;
+    flex-direction: column;
 }
 
 @supports (backdrop-filter: blur(12px)) {
