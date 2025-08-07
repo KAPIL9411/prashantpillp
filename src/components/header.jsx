@@ -1,132 +1,128 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import '../styles/header.css'; 
+import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
+import '../styles/header.css';
 import { 
-  FaHome, 
-  FaInfoCircle, 
-  FaUsers, 
-  FaBox, 
-  FaEnvelope,
-  FaIndustry,
-  FaCertificate,
-  FaLeaf,
-  FaFileAlt,
-  FaTrophy,
-  FaTimes
+  FaHome, FaInfoCircle, FaUsers, FaBox, FaEnvelope,
+  FaIndustry, FaCertificate, FaLeaf, FaFileAlt, FaTrophy
 } from 'react-icons/fa';
-import logo from '../assets/logos/logo.webp';
+
+const MENU_ITEMS = [
+  { id: '#home', icon: FaHome, label: 'Home' },
+  { id: '#about-us', icon: FaInfoCircle, label: 'About Us' },
+  { id: '#ourteam', icon: FaUsers, label: 'Team' },
+  { id: '#products', icon: FaBox, label: 'Products' },
+  { id: '#industries', icon: FaIndustry, label: 'Industries' },
+  { id: '#quality-certifications', icon: FaCertificate, label: 'Quality & Certifications' },
+  { id: '#sustainability', icon: FaLeaf, label: 'Sustainability' },
+  { id: '#resources', icon: FaFileAlt, label: 'Resources' },
+  { id: '#awards', icon: FaTrophy, label: 'Awards' },
+  { id: '#contact', icon: FaEnvelope, label: 'Contact', isContact: true }
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleLinkClick = () => {
-    setIsMenuOpen(false);
-  };
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
+      setIsScrolled(window.scrollY > 50);
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
   }, [isMenuOpen]);
 
-  const menuItems = [
-    { href: '#home', icon: FaHome, label: 'Home' },
-    { href: '#about-us', icon: FaInfoCircle, label: 'About Us' },
-    { href: '#ourteam', icon: FaUsers, label: 'Team' },
-    { href: '#products', icon: FaBox, label: 'Products' },
-    { href: '#industries', icon: FaIndustry, label: 'Industries' },
-    { href: '#quality-certifications', icon: FaCertificate, label: 'Quality & Certifications' },
-    { href: '#sustainability', icon: FaLeaf, label: 'Sustainability' },
-    { href: '#resources', icon: FaFileAlt, label: 'Resources' },
-    { href: '#awards', icon: FaTrophy, label: 'Awards' },
-    { href: '#contact', icon: FaEnvelope, label: 'Contact', isContact: true }
-  ];
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev);
+  }, []);
+
+  const handleLinkClick = useCallback((e, targetId) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+
+    const performScroll = () => {
+      const element = document.querySelector(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      requestAnimationFrame(() => {
+        setTimeout(performScroll, 50);
+      });
+    } else {
+      performScroll();
+    }
+  }, [location.pathname, navigate]);
 
   return (
     <>
       <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-content">
-          <div className="logo">
-            <a href="#home" onClick={handleLinkClick}>
-              <img src={logo} alt="Prashant Plastic Industries LLP" className="logo-image" />
-            </a>
-          </div>
+          <a href="#home" onClick={(e) => handleLinkClick(e, '#home')} className="logo-link">
+            <img src="/logos/logo.webp" alt="Prashant Plastic Industries LLP Logo" className="logo-image" />
+          </a>
           
           <nav className="nav-links">
-            <a href="#home" onClick={handleLinkClick}>Home</a>
-            <a href="#about-us" onClick={handleLinkClick}>About Us</a>
-            <a href="#ourteam" onClick={handleLinkClick}>Team</a>
-            <a href="#products" onClick={handleLinkClick}>Products</a>
+            {MENU_ITEMS.slice(0, 4).map(item => (
+              <a key={item.id} href={item.id} onClick={(e) => handleLinkClick(e, item.id)}>
+                {item.label}
+              </a>
+            ))}
           </nav>
           
-          <a href="#contact" className="contact-btn" onClick={handleLinkClick}>Contact</a>
+          <a href="#contact" className="contact-btn" onClick={(e) => handleLinkClick(e, '#contact')}>
+            Contact Us
+          </a>
 
-          <button className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu">
-            <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
-            <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
-            <div className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></div>
+          <button className="hamburger-menu" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
+            <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+            <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+            <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
           </button>
         </div>
       </header>
 
-      <div className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
+      <aside className={`side-menu ${isMenuOpen ? 'open' : ''}`}>
         <div className="side-menu-header">
-          <div className="side-menu-logo">
-            <img src={logo} alt="PPILLP" className="side-logo-image" />
-          </div>
-          <button className="close-menu-btn" onClick={toggleMenu} aria-label="Close menu">
-            <FaTimes />
-          </button>
+          <img src="/logos/logo.webp" alt="PPILLP Logo" className="side-logo-image" />
+          <button className="close-menu-btn" onClick={toggleMenu} aria-label="Close menu"></button>
         </div>
         
         <nav className="side-menu-nav">
-          {menuItems.map((item, index) => {
+          {MENU_ITEMS.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <a 
-                key={item.href}
-                href={item.href} 
-                onClick={handleLinkClick}
+                key={item.id}
+                href={item.id} 
+                onClick={(e) => handleLinkClick(e, item.id)}
                 className={`side-menu-item ${item.isContact ? 'contact-item' : ''}`}
-                style={{ transitionDelay: `${index * 0.05}s` }}
+                style={{ transitionDelay: `${index * 0.04}s` }}
               >
-                <div className="menu-item-icon">
-                  <IconComponent />
-                </div>
+                <IconComponent className="menu-item-icon" />
                 <span className="menu-item-label">{item.label}</span>
-                <div className="menu-item-arrow">→</div>
+                <span className="menu-item-arrow">→</span>
               </a>
             );
           })}
         </nav>
         
-        <div className="side-menu-footer">
+        <footer className="side-menu-footer">
           <p className="company-tagline">Engineering Excellence in Every Layer</p>
-        </div>
-      </div>
+        </footer>
+      </aside>
       
-      <div className={`menu-backdrop ${isMenuOpen ? 'open' : ''}`} onClick={handleLinkClick}></div>
+      <div className={`menu-backdrop ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu} />
     </>
   );
 };

@@ -77,6 +77,11 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/about-extended" element={
+            <Suspense fallback={<FullPageSkeleton />}>
+              <AboutExtended />
+            </Suspense>
+          } />
         </Routes>
         <Footer />
       </BrowserRouter>

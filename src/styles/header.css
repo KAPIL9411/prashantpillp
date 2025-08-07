@@ -19,7 +19,6 @@
   transition: all 0.3s ease;
 }
 
-/* Scrolled state */
 .main-header.scrolled {
   top: 0.5rem;
   background: rgba(255, 255, 255, 0.95);
@@ -232,7 +231,7 @@
 }
 
 .side-logo-image {
-  height: 35px;
+  height: 45px;
   width: auto;
   max-width: 140px;
   object-fit: contain;
@@ -244,19 +243,40 @@
   border: none;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  color: #64748b;
-  font-size: 1.1rem;
   transition: all 0.3s ease;
+  position: relative; /* Needed for pseudo-elements */
+}
+
+.close-menu-btn::before,
+.close-menu-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px; /* Width of the cross lines */
+  height: 2px; /* Thickness of the cross lines */
+  background-color: #1f2937; /* Color of the cross */
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.close-menu-btn::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-menu-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .close-menu-btn:hover {
   background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
   transform: rotate(90deg);
+}
+
+.close-menu-btn:hover::before,
+.close-menu-btn:hover::after {
+  background-color: #ef4444;
 }
 
 .side-menu-nav {
@@ -364,7 +384,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Backdrop Overlay */
 .menu-backdrop {
   position: fixed;
   inset: 0;

@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/footer.css';
 import { FaLinkedin, FaTwitter, FaFacebook, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
-import logo from '../assets/logos/logo.webp'; 
+import logo from '/logos/logo.webp'; 
 
 const Logo = () => (
   <div className="footer-logo">

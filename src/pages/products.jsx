@@ -175,7 +175,6 @@ export default function Products() {
       <section className="products-root">
         {selectedCategory ? (
           <div>
-            {/* FIXED: Wrapped button in a div to align with CSS for better positioning */}
             <div className="back-button-wrapper">
               <button onClick={handleBackClick} className="back-button">
                 <ChevronLeftIcon />

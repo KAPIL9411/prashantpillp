@@ -3,7 +3,6 @@ import { useLazyLoad } from '../hooks/useLazyLoad';
 import { SectionLoader } from './Loaders';
 import '../styles/loaders.css';
 
-// Lazy section wrapper with intersection observer
 const LazySection = ({ 
   children, 
   fallback, 

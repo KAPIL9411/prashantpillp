@@ -12,6 +12,13 @@ const stats = [
 
 export default function AboutUs() {
     const navigate = useNavigate();
+    
+    const handleLearnMoreClick = () => {
+        navigate('/about-extended');
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+    };
     return (
         <section className="aboutus-root">
             <h1 className="aboutus-title">ABOUT PPILLP</h1>
@@ -29,10 +36,16 @@ export default function AboutUs() {
             <div
                 className="aboutus-plus-icon"
                 style={{ cursor: 'pointer' }}
-                onClick={() => navigate('/about-extended')}
+                onClick={handleLearnMoreClick}
                 title="See more"
             >
-                &#8594;
+                <div className="modern-icon-container">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                        <path d="M8 12h8M16 12l-4-4M16 12l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span className="icon-text">Learn More</span>
+                </div>
             </div>
         </section>
     );
